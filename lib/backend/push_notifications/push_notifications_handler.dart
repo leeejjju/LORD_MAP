@@ -67,14 +67,14 @@ class _PushNotificationsHandlerState extends State<PushNotificationsHandler> {
   @override
   Widget build(BuildContext context) => _loading
       ? Container(
-    color: FlutterFlowTheme.of(context).primaryBtnText,
-    child: Builder(
-      builder: (context) => Image.asset(
-        'assets/images/Church.png',
-        fit: BoxFit.contain,
-      ),
-    ),
-  )
+          color: FlutterFlowTheme.of(context).primaryBtnText,
+          child: Builder(
+            builder: (context) => Image.asset(
+              'assets/images/Church.png',
+              fit: BoxFit.contain,
+            ),
+          ),
+        )
       : widget.child;
 }
 
@@ -87,9 +87,9 @@ final pageBuilderMap = <String, Future<Widget> Function(Map<String, dynamic>)>{
   'Formoreget': (data) async => FormoregetWidget(),
   'PrayerSend1': (data) async => PrayerSend1Widget(),
   'PrayerGet': (data) async => PrayerGetWidget(),
-  'Timer': (data) async => TimerWidget(
-    prayerGroup: getParameter(data, 'prayerGroup'),
-  ),
+  /*'Timer': (data) async => TimerWidget(
+        prayerGroup: getParameter(data, 'prayerGroup'),
+      ),*/
   'Find_prayer_group': (data) async => FindPrayerGroupWidget(),
   'Timer_addGroup': (data) async => TimerAddGroupWidget(),
   'AlarmAdd': (data) async => AlarmAddWidget(),
@@ -108,9 +108,6 @@ final pageBuilderMap = <String, Future<Widget> Function(Map<String, dynamic>)>{
   'Setting': (data) async => SettingWidget(),
   'practice': (data) async => PracticeWidget(),
   'practice1': (data) async => Practice1Widget(),
-  'TimerCopy': (data) async => TimerCopyWidget(
-    prayerGroup: getParameter(data, 'prayerGroup'),
-  ),
   'BibleToday': (data) async => BibleTodayWidget(),
 };
 

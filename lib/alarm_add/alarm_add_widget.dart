@@ -29,6 +29,44 @@ class _AlarmAddWidgetState extends State<AlarmAddWidget> {
     textController = TextEditingController();
   }
 
+  int hour = 0, min = 0;
+
+  void upCount(int x){
+    if(x == 0){
+      setState(() {
+        hour++;
+        if(hour >23) hour = 0;
+      });
+    }else{
+      setState(() {
+        min++;
+        if(min >59){
+          min = 0;
+          hour ++;
+          if(hour >23) hour = 0;
+        }
+      });
+    }
+  }
+
+  void downCount(int x){
+    if(x == 0){
+      setState(() {
+        hour--;
+        if(hour < 0) hour = 23;
+      });
+    }else{
+      setState(() {
+        min--;
+        if(min < 0){
+          min = 59;
+          hour --;
+          if(hour < 0) hour = 23;
+        }
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -69,7 +107,8 @@ class _AlarmAddWidgetState extends State<AlarmAddWidget> {
                         size: 30,
                       ),
                       onPressed: () {
-                        print('IconButton pressed ...');
+                        print('hour up ...');
+                        upCount(0);
                       },
                     ),
                     FlutterFlowIconButton(
@@ -83,7 +122,8 @@ class _AlarmAddWidgetState extends State<AlarmAddWidget> {
                         size: 30,
                       ),
                       onPressed: () {
-                        print('IconButton pressed ...');
+                        print('min up ...');
+                        upCount(1);
                       },
                     ),
                   ],
@@ -94,12 +134,12 @@ class _AlarmAddWidgetState extends State<AlarmAddWidget> {
                 children: [
                   Expanded(
                     child: Text(
-                      '06 : 00',
+                      '$hour : $min',
                       textAlign: TextAlign.center,
                       style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
-                        fontSize: 60,
-                      ),
+                            fontFamily: 'Poppins',
+                            fontSize: 60,
+                          ),
                     ),
                   ),
                 ],
@@ -119,7 +159,8 @@ class _AlarmAddWidgetState extends State<AlarmAddWidget> {
                       size: 30,
                     ),
                     onPressed: () {
-                      print('IconButton pressed ...');
+                      print('hour down ...');
+                      downCount(0);
                     },
                   ),
                   FlutterFlowIconButton(
@@ -133,7 +174,8 @@ class _AlarmAddWidgetState extends State<AlarmAddWidget> {
                       size: 30,
                     ),
                     onPressed: () {
-                      print('IconButton pressed ...');
+                      print('min down ...');
+                      downCount(1);
                     },
                   ),
                 ],
@@ -238,11 +280,11 @@ class _AlarmAddWidgetState extends State<AlarmAddWidget> {
                         textStyle: FlutterFlowTheme.of(context)
                             .subtitle2
                             .override(
-                          fontFamily: 'Poppins',
-                          color:
-                          FlutterFlowTheme.of(context).primaryBtnText,
-                          fontSize: 15,
-                        ),
+                              fontFamily: 'Poppins',
+                              color:
+                                  FlutterFlowTheme.of(context).primaryBtnText,
+                              fontSize: 15,
+                            ),
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1,

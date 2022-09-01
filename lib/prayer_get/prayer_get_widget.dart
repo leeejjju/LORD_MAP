@@ -30,21 +30,21 @@ class _PrayerGetWidgetState extends State<PrayerGetWidget> {
 
 
   //랜덤기도제목 받아오고 DB에도 저장해주는 친구
-   Future<void> getRandomPrayerTitle() async {
+  Future<void> getRandomPrayerTitle() async {
 
-      //새거 가져오고
-      RandGetter n = RandGetter();
-      String foo = await n.getRandomPrayTitle();
-      setState(() {
-        someonePrayerTitle = foo;
-      });
+    //새거 가져오고
+    RandGetter n = RandGetter();
+    String foo = await n.getRandomPrayTitle();
+    setState(() {
+      someonePrayerTitle = foo;
+    });
 
-      //유저필드도 그걸로 업데이트 해주기
-      final usersUpdateData = createUsersRecordData(
-        prayTitleGot: someonePrayerTitle,
-      );
-      await currentUserReference!.update(usersUpdateData);
-      print("got new Random title :D");
+    //유저필드도 그걸로 업데이트 해주기
+    final usersUpdateData = createUsersRecordData(
+      prayTitleGot: someonePrayerTitle,
+    );
+    await currentUserReference!.update(usersUpdateData);
+    print("got new Random title :D");
 
   }
 
@@ -165,15 +165,15 @@ class _PrayerGetWidgetState extends State<PrayerGetWidget> {
                         );
                       }
                       List<ColPTTodayRecord> buttonColPTTodayRecordList =
-                          snapshot.data!;
+                      snapshot.data!;
                       // Return an empty Container when the document does not exist.
                       if (snapshot.data!.isEmpty) {
                         return Container();
                       }
                       final buttonColPTTodayRecord =
-                          buttonColPTTodayRecordList.isNotEmpty
-                              ? buttonColPTTodayRecordList.first
-                              : null;
+                      buttonColPTTodayRecordList.isNotEmpty
+                          ? buttonColPTTodayRecordList.first
+                          : null;
                       return FFButtonWidget(
                         onPressed: () async {
                           logFirebaseEvent(
@@ -195,10 +195,10 @@ class _PrayerGetWidgetState extends State<PrayerGetWidget> {
                           height: 40,
                           color: FlutterFlowTheme.of(context).primaryColor,
                           textStyle:
-                              FlutterFlowTheme.of(context).subtitle2.override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.white,
-                                  ),
+                          FlutterFlowTheme.of(context).subtitle2.override(
+                            fontFamily: 'Poppins',
+                            color: Colors.white,
+                          ),
                           borderSide: BorderSide(
                             color: Colors.transparent,
                             width: 1,

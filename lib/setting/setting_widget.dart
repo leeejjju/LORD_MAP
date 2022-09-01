@@ -8,8 +8,8 @@ import '../loading/loading_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
-
 import '../backend/cloud_functions/cloud_functions.dart';
+
 
 class SettingWidget extends StatefulWidget {
   const SettingWidget({Key? key}) : super(key: key);
@@ -55,13 +55,16 @@ class _SettingWidgetState extends State<SettingWidget> {
             );
           },
         ),
-        title: Text(
-          'Setting',
-          style: FlutterFlowTheme.of(context).title2.override(
-                fontFamily: 'Poppins',
-                color: FlutterFlowTheme.of(context).black600,
-                fontSize: 22,
-              ),
+        title: Align(
+          alignment: AlignmentDirectional(-0.25, 0),
+          child: Text(
+            'Setting',
+            style: FlutterFlowTheme.of(context).title2.override(
+                  fontFamily: 'Poppins',
+                  color: FlutterFlowTheme.of(context).black600,
+                  fontSize: 22,
+                ),
+          ),
         ),
         actions: [],
         centerTitle: false,
@@ -73,42 +76,38 @@ class _SettingWidgetState extends State<SettingWidget> {
           onTap: () => FocusScope.of(context).unfocus(),
           child: Column(
             mainAxisSize: MainAxisSize.max,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Row(
                 mainAxisSize: MainAxisSize.max,
-                children: [],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
-                children: [],
-              ),
-              Row(
-                mainAxisSize: MainAxisSize.max,
+                mainAxisAlignment: MainAxisAlignment.end,
                 children: [
-                  FlutterFlowIconButton(
-                    borderColor: Colors.transparent,
-                    borderRadius: 30,
-                    borderWidth: 1,
-                    buttonSize: 60,
-                    icon: Icon(
-                      Icons.notifications,
-                      color: FlutterFlowTheme.of(context).primaryText,
-                      size: 30,
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(0, 10, 10, 0),
+                    child: FlutterFlowIconButton(
+                      borderColor: Colors.transparent,
+                      borderRadius: 30,
+                      borderWidth: 1,
+                      buttonSize: 60,
+                      icon: Icon(
+                        Icons.notifications_off,
+                        color: FlutterFlowTheme.of(context).primaryText,
+                        size: 30,
+                      ),
+                      onPressed: () async {
+                        print('notification button pressed ...');
+
+                        RandGetter n = RandGetter();
+                        //for(int i = 0; i < 10; i++) n.createdata( i.toString(), "this is test word ^0^");
+                        //n.getRandom();
+                        var plz = await n.getRandomBible();
+                        print(plz);
+                        print("-----------------------------------");
+                        String nnn = await n.getRandomPrayTitle();
+                        print(nnn);
+
+                      },
                     ),
-                    onPressed: () async {
-                      print('notification button pressed ...');
-
-                      RandGetter n = RandGetter();
-                      //for(int i = 0; i < 10; i++) n.createdata( i.toString(), "this is test word ^0^");
-                      //n.getRandom();
-                      var plz = await n.getRandomBible();
-                      print(plz);
-                      print("-----------------------------------");
-                      String nnn = await n.getRandomPrayTitle();
-                      print(nnn);
-
-
-                    },
                   ),
                 ],
               ),
@@ -174,6 +173,27 @@ class _SettingWidgetState extends State<SettingWidget> {
                         width: 1,
                       ),
                       borderRadius: BorderRadius.circular(8),
+                    ),
+                  ),
+                ],
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(0, 100, 0, 300),
+                child: Text(
+                  '                ',
+                  style: FlutterFlowTheme.of(context).bodyText1,
+                ),
+              ),
+              Row(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding: EdgeInsetsDirectional.fromSTEB(10, 20, 0, 10),
+                    child: Text(
+                      'GHOST33 :: GBC PROJECT\n이찬휘 송예지 이진주',
+                      style: TextStyle(
+                        color: FlutterFlowTheme.of(context).grayIcon,
+                      ),
                     ),
                   ),
                 ],

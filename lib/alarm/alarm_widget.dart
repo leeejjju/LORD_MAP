@@ -61,9 +61,9 @@ class _AlarmWidgetState extends State<AlarmWidget> {
                     title: Text(
                       '오늘의 말씀 받기',
                       style: FlutterFlowTheme.of(context).bodyText1.override(
-                        fontFamily: 'Poppins',
-                        fontSize: 20,
-                      ),
+                            fontFamily: 'Poppins',
+                            fontSize: 20,
+                          ),
                     ),
                     tileColor: Color(0xFFFAFAD2),
                     dense: false,
@@ -91,9 +91,9 @@ class _AlarmWidgetState extends State<AlarmWidget> {
                     title: Text(
                       '08 : 00',
                       style: FlutterFlowTheme.of(context).title1.override(
-                        fontFamily: 'Poppins',
-                        fontSize: 40,
-                      ),
+                            fontFamily: 'Poppins',
+                            fontSize: 40,
+                          ),
                     ),
                     subtitle: Text(
                       '\" 아침기도! \"',
@@ -110,9 +110,9 @@ class _AlarmWidgetState extends State<AlarmWidget> {
                     title: Text(
                       '08 : 00',
                       style: FlutterFlowTheme.of(context).title1.override(
-                        fontFamily: 'Poppins',
-                        fontSize: 40,
-                      ),
+                            fontFamily: 'Poppins',
+                            fontSize: 40,
+                          ),
                     ),
                     subtitle: Text(
                       '\" 아침기도! \"',
@@ -129,9 +129,9 @@ class _AlarmWidgetState extends State<AlarmWidget> {
                     title: Text(
                       '08 : 00',
                       style: FlutterFlowTheme.of(context).title1.override(
-                        fontFamily: 'Poppins',
-                        fontSize: 40,
-                      ),
+                            fontFamily: 'Poppins',
+                            fontSize: 40,
+                          ),
                     ),
                     subtitle: Text(
                       '\" 아침기도! \"',

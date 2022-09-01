@@ -109,9 +109,9 @@ class _TimerWidgetState extends State<TimerWidget> {
           'add another group',
           textAlign: TextAlign.center,
           style: FlutterFlowTheme.of(context).bodyText1.override(
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w500,
-              ),
+            fontFamily: 'Poppins',
+            fontWeight: FontWeight.w500,
+          ),
         ),
       ),
       body: SafeArea(
@@ -135,7 +135,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                           ),
                           Padding(
                             padding:
-                                EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
+                            EdgeInsetsDirectional.fromSTEB(0, 20, 0, 0),
                             child: AuthUserStreamWidget(
                               child: Text(
                                 valueOrDefault(
@@ -160,9 +160,9 @@ class _TimerWidgetState extends State<TimerWidget> {
                         valueOrDefault(currentUserDocument?.prayTimeToday, 0)
                             .toString(),
                         style: FlutterFlowTheme.of(context).bodyText1.override(
-                              fontFamily: 'Poppins',
-                              fontSize: 40,
-                            ),
+                          fontFamily: 'Poppins',
+                          fontSize: 40,
+                        ),
                       ),
                     ),
                   ),
@@ -184,10 +184,10 @@ class _TimerWidgetState extends State<TimerWidget> {
                         height: 60,
                         color: Color(0xFFFAFAD2),
                         textStyle:
-                            FlutterFlowTheme.of(context).subtitle2.override(
-                                  fontFamily: 'Poppins',
-                                  color: FlutterFlowTheme.of(context).black600,
-                                ),
+                        FlutterFlowTheme.of(context).subtitle2.override(
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).black600,
+                        ),
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1,
@@ -205,14 +205,14 @@ class _TimerWidgetState extends State<TimerWidget> {
                         );
                         await currentUserReference!.update(usersUpdateData);
                         logFirebaseEvent('Button_Trigger-Push-Notification');
-                        triggerPushNotification(
+                        /*triggerPushNotification(
                           notificationTitle: '누군가 당신을 위해 기도했어요 :)',
                           notificationText: valueOrDefault(
                               currentUserDocument?.prayTitleGot, ''),
                           userRefs: [currentUserReference!],
                           initialPageName: 'Homepage',
                           parameterData: {},
-                        );
+                        );*/
                       },
                       text: 'Finish',
                       options: FFButtonOptions(
@@ -222,9 +222,9 @@ class _TimerWidgetState extends State<TimerWidget> {
                         textStyle: FlutterFlowTheme.of(context)
                             .subtitle2
                             .override(
-                              fontFamily: 'Poppins',
-                              color: FlutterFlowTheme.of(context).primaryText,
-                            ),
+                          fontFamily: 'Poppins',
+                          color: FlutterFlowTheme.of(context).primaryText,
+                        ),
                         borderSide: BorderSide(
                           color: Colors.transparent,
                           width: 1,
@@ -265,15 +265,15 @@ class _TimerWidgetState extends State<TimerWidget> {
                                 );
                               }
                               List<UsersRecord> tabUsersRecordList =
-                                  snapshot.data!;
+                              snapshot.data!;
                               // Return an empty Container when the document does not exist.
                               if (snapshot.data!.isEmpty) {
                                 return Container();
                               }
                               final tabUsersRecord =
-                                  tabUsersRecordList.isNotEmpty
-                                      ? tabUsersRecordList.first
-                                      : null;
+                              tabUsersRecordList.isNotEmpty
+                                  ? tabUsersRecordList.first
+                                  : null;
                               return Tab(
                                 text: tabUsersRecord!.prayerGroup!,
                               );
@@ -317,7 +317,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                                       queryBuilder: (prayerGroupRecord) =>
                                           prayerGroupRecord.where('users',
                                               arrayContains:
-                                                  currentUserDisplayName),
+                                              currentUserDisplayName),
                                     ),
                                     builder: (context, snapshot) {
                                       // Customize what your widget looks like when it's loading.
@@ -334,8 +334,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         );
                                       }
                                       List<PrayerGroupRecord>
-                                          listTilePrayerGroupRecordList =
-                                          snapshot.data!;
+                                      listTilePrayerGroupRecordList =
+                                      snapshot.data!;
                                       return ListTile(
                                         title: Text(
                                           listTilePrayerGroupRecordList.length
@@ -371,14 +371,14 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 10, 0, 10),
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0, 10, 0, 10),
                                             child: Text(
                                               ':: 주간 랭킹 ::',
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .subtitle2,
+                                              FlutterFlowTheme.of(context)
+                                                  .subtitle2,
                                             ),
                                           ),
                                         ),
@@ -387,12 +387,12 @@ class _TimerWidgetState extends State<TimerWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '1. ',
                                             style: FlutterFlowTheme.of(context)
@@ -412,8 +412,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '김개똥',
                                             style: FlutterFlowTheme.of(context)
@@ -422,8 +422,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '04:19',
                                             style: FlutterFlowTheme.of(context)
@@ -440,12 +440,12 @@ class _TimerWidgetState extends State<TimerWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '1. ',
                                             style: FlutterFlowTheme.of(context)
@@ -465,8 +465,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '김개똥',
                                             style: FlutterFlowTheme.of(context)
@@ -475,8 +475,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '04:19',
                                             style: FlutterFlowTheme.of(context)
@@ -493,12 +493,12 @@ class _TimerWidgetState extends State<TimerWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '1. ',
                                             style: FlutterFlowTheme.of(context)
@@ -518,8 +518,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '김개똥',
                                             style: FlutterFlowTheme.of(context)
@@ -528,8 +528,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '04:19',
                                             style: FlutterFlowTheme.of(context)
@@ -546,12 +546,12 @@ class _TimerWidgetState extends State<TimerWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '1. ',
                                             style: FlutterFlowTheme.of(context)
@@ -571,8 +571,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '김개똥',
                                             style: FlutterFlowTheme.of(context)
@@ -581,8 +581,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '04:19',
                                             style: FlutterFlowTheme.of(context)
@@ -615,14 +615,14 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         Expanded(
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0, 10, 0, 10),
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                0, 10, 0, 10),
                                             child: Text(
                                               ':: 주간 랭킹 ::',
                                               textAlign: TextAlign.center,
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .subtitle2,
+                                              FlutterFlowTheme.of(context)
+                                                  .subtitle2,
                                             ),
                                           ),
                                         ),
@@ -631,7 +631,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Text(
                                           '1',
@@ -640,8 +640,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '김개똥',
                                             style: FlutterFlowTheme.of(context)
@@ -650,8 +650,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '04:19',
                                             style: FlutterFlowTheme.of(context)
@@ -668,7 +668,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Text(
                                           '2',
@@ -677,8 +677,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '김개똥',
                                             style: FlutterFlowTheme.of(context)
@@ -687,8 +687,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '04:19',
                                             style: FlutterFlowTheme.of(context)
@@ -705,7 +705,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Text(
                                           '3',
@@ -714,8 +714,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '김개똥',
                                             style: FlutterFlowTheme.of(context)
@@ -724,8 +724,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '04:19',
                                             style: FlutterFlowTheme.of(context)
@@ -742,7 +742,7 @@ class _TimerWidgetState extends State<TimerWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceEvenly,
+                                      MainAxisAlignment.spaceEvenly,
                                       children: [
                                         Text(
                                           '4',
@@ -751,8 +751,8 @@ class _TimerWidgetState extends State<TimerWidget> {
                                         ),
                                         Padding(
                                           padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10, 0, 10, 0),
+                                          EdgeInsetsDirectional.fromSTEB(
+                                              10, 0, 10, 0),
                                           child: Text(
                                             '김개똥',
                                             style: FlutterFlowTheme.of(context)
@@ -763,13 +763,13 @@ class _TimerWidgetState extends State<TimerWidget> {
                                           alignment: AlignmentDirectional(0, 0),
                                           child: Padding(
                                             padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10, 0, 10, 0),
+                                            EdgeInsetsDirectional.fromSTEB(
+                                                10, 0, 10, 0),
                                             child: Text(
                                               '04:19',
                                               style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyText1,
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyText1,
                                             ),
                                           ),
                                         ),

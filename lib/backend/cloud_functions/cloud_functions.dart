@@ -16,9 +16,9 @@ Future<Map<String, dynamic>> makeCloudCall(
     if (e is FirebaseFunctionsException) {
       print(
         'Cloud call error!\n'
-            'Code: ${e.code}\n'
-            'Details: ${e.details}\n'
-            'Message: ${e.message}',
+        'Code: ${e.code}\n'
+        'Details: ${e.details}\n'
+        'Message: ${e.message}',
       );
     } else {
       print('Cloud call error: $e');
@@ -28,33 +28,33 @@ Future<Map<String, dynamic>> makeCloudCall(
 }
 
 
-
-
-class RandGetter{
+class RandGetter {
 
   Random rand = Random();
 
 
   //데이터 삽입 기본예제
-  void createdata(String code, String txt){
-    final usercol=FirebaseFirestore.instance.collection("Bible").doc("$code");
+  void createdata(String code, String txt) {
+    final usercol = FirebaseFirestore.instance.collection("Bible").doc("$code");
     usercol.set({
-      "text" : "$txt",
+      "text": "$txt",
     });
   }
 
   //데이터 삽입 - 기도제목용 커스텀, 1씩 증가하는 i를 id로 갖는 기도제목 데이터 생성.
-  void createPrayerTitleData(String txt, int I){
-    final usercol=FirebaseFirestore.instance.collection("col_PT_Today").doc(I.toString());
+  void createPrayerTitleData(String txt, int I) {
+    final usercol = FirebaseFirestore.instance.collection("col_PT_Today").doc(
+        I.toString());
     usercol.set({
-      "col_pt" : "$txt",
+      "col_pt": "$txt",
     });
   }
 
   //데이터 읽기 기본예제
-  void readdata(String code){
-    final usercol=FirebaseFirestore.instance.collection("Bible").doc("$code");
-    usercol.get().then((value) => {
+  void readdata(String code) {
+    final usercol = FirebaseFirestore.instance.collection("Bible").doc("$code");
+    usercol.get().then((value) =>
+    {
       print(value.data())
     });
   }
@@ -62,10 +62,10 @@ class RandGetter{
 
   //랜덤 데이터 반환 - 말씀편
   Future<String> getRandomBible() async {
-
     //일단 성경은 요걸로만 해보께요...
     int ranNum = rand.nextInt(10);
-    final usercol=FirebaseFirestore.instance.collection("Bible").doc(ranNum.toString());
+    final usercol = FirebaseFirestore.instance.collection("Bible").doc(
+        ranNum.toString());
 
     final foo = await usercol.get();
     final randVar = foo.data()!['text'];
@@ -83,10 +83,10 @@ class RandGetter{
 
   //랜덤 데이터 반환 - 기도제목편
   Future<String> getRandomPrayTitle() async {
-
     int varLen = await getDummyVar();
     int ranNum = rand.nextInt(varLen);
-    final usercol=FirebaseFirestore.instance.collection("col_PT_Today").doc(ranNum.toString());
+    final usercol = FirebaseFirestore.instance.collection("col_PT_Today").doc(
+        ranNum.toString());
 
     //본인거 걸러내는거 어케하징 필드를 하나 추가해서 유저아이디같은거 넣어주면 그걸로 필터링할 수 있을 것 같은딩
     //final foo = await usercol.collection("col_PT_Today").where("UID", isEqualTo: false).get();
@@ -101,12 +101,12 @@ class RandGetter{
   //i값 불러와서 +1한거 반환하고 업데이트까지 갈기는 메서드
   Future<int> updateDummy() async {
     //불러오기
-    final usercol=FirebaseFirestore.instance.collection("Bible").doc("dummy");
+    final usercol = FirebaseFirestore.instance.collection("Bible").doc("dummy");
     final foo = await usercol.get();
     int i = foo.data()!['i'] + 1;
     //+1하여 업데이트
     usercol.update({
-      "i" :i,
+      "i": i,
     });
     //반환
     return i;
@@ -115,7 +115,7 @@ class RandGetter{
   //현재 i의 필드값 읽어오기
   Future<int> getDummyVar() async {
     //불러오기
-    final usercol=FirebaseFirestore.instance.collection("Bible").doc("dummy");
+    final usercol = FirebaseFirestore.instance.collection("Bible").doc("dummy");
     final foo = await usercol.get();
     int i = foo.data()!['i'] + 1;
     //반환
@@ -124,37 +124,32 @@ class RandGetter{
 
   //유저의 prayerTitl_got을 업뎃해주는 칭구
   //근데!! 유저 아이디를 어케알지.....???
-  void updatePTitleGot(String pTitle){
-    final usercol=FirebaseFirestore.instance.collection("Users").doc("uH4SLKSg1VfVdpJGOJIcDhVYo1J3");
+  void updatePTitleGot(String pTitle) {
+    final usercol = FirebaseFirestore.instance.collection("Users").doc(
+        "uH4SLKSg1VfVdpJGOJIcDhVYo1J3");
     usercol.update({
-      "prayTitl_got" :"$pTitle",
+      "prayTitl_got": "$pTitle",
     });
   }
 
 
-
-
   //데이터 수정 기본예제
-  void updatedata(String code, String status){
-    final usercol=FirebaseFirestore.instance.collection("players").doc("$code");
+  void updatedata(String code, String status) {
+    final usercol = FirebaseFirestore.instance.collection("players").doc(
+        "$code");
     usercol.update({
-      "status" :"$status",
+      "status": "$status",
     });
   }
 
 
   //데이터 삭제 기본예제
-  void deletedata(String code){
-    final usercol=FirebaseFirestore.instance.collection("players").doc("$code");
+  void deletedata(String code) {
+    final usercol = FirebaseFirestore.instance.collection("players").doc(
+        "$code");
     usercol.delete();
   }
 
 
-
-
 }
-
-
-
-
 

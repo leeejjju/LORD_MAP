@@ -171,9 +171,9 @@ class _PrayerSend1WidgetState extends State<PrayerSend1Widget> {
                     height: 40,
                     color: FlutterFlowTheme.of(context).primaryColor,
                     textStyle: FlutterFlowTheme.of(context).subtitle2.override(
-                          fontFamily: 'Poppins',
-                          color: Colors.white,
-                        ),
+                      fontFamily: 'Poppins',
+                      color: Colors.white,
+                    ),
                     borderSide: BorderSide(
                       color: Colors.transparent,
                       width: 1,
