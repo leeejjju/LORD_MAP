@@ -20,7 +20,7 @@ class PrayerGetWidget extends StatefulWidget {
 
 }
 
-String someonePrayerTitle = "this is test prayer title!!!!!! :3";
+String someonePrayerTitle = "[버튼을 눌러 기도제목 받기!]";
 
 
 class _PrayerGetWidgetState extends State<PrayerGetWidget> {
@@ -31,6 +31,7 @@ class _PrayerGetWidgetState extends State<PrayerGetWidget> {
 
   //랜덤기도제목 받아오고 DB에도 저장해주는 친구
    Future<void> getRandomPrayerTitle() async {
+
       //새거 가져오고
       RandGetter n = RandGetter();
       String foo = await n.getRandomPrayTitle();
@@ -39,9 +40,10 @@ class _PrayerGetWidgetState extends State<PrayerGetWidget> {
       });
 
       //유저필드도 그걸로 업데이트 해주기
-      n.updatePTitleGot(someonePrayerTitle);
-      //근데 유저아이디를 어케알지ㅣ요..?
-
+      final usersUpdateData = createUsersRecordData(
+        prayTitleGot: someonePrayerTitle,
+      );
+      await currentUserReference!.update(usersUpdateData);
       print("got new Random title :D");
 
   }

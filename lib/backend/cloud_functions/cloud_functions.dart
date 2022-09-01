@@ -2,6 +2,7 @@ import 'package:cloud_functions/cloud_functions.dart';
 import 'package:lord_map/backend/backend.dart';
 import 'dart:math';
 
+
 Future<Map<String, dynamic>> makeCloudCall(
     String callName, Map<String, dynamic> input) async {
   try {
@@ -15,9 +16,9 @@ Future<Map<String, dynamic>> makeCloudCall(
     if (e is FirebaseFunctionsException) {
       print(
         'Cloud call error!\n'
-        'Code: ${e.code}\n'
-        'Details: ${e.details}\n'
-        'Message: ${e.message}',
+            'Code: ${e.code}\n'
+            'Details: ${e.details}\n'
+            'Message: ${e.message}',
       );
     } else {
       print('Cloud call error: $e');
@@ -25,7 +26,6 @@ Future<Map<String, dynamic>> makeCloudCall(
     return {};
   }
 }
-
 
 
 
