@@ -97,14 +97,14 @@ class _SettingWidgetState extends State<SettingWidget> {
                       onPressed: () async {
                         print('notification button pressed ...');
 
-                        RandGetter n = RandGetter();
-                        //for(int i = 0; i < 10; i++) n.createdata( i.toString(), "this is test word ^0^");
+                        //RandGetter n = RandGetter();
+                        //for(int i = 20; i < 30; i++) n.createdata( i.toString(), "this is test word ^0^");
                         //n.getRandom();
-                        var plz = await n.getRandomBible();
-                        print(plz);
-                        print("-----------------------------------");
-                        String nnn = await n.getRandomPrayTitle();
-                        print(nnn);
+                        //var plz = await n.getRandomBible();
+                        //print(plz);
+                        //print("-----------------------------------");
+                        //String nnn = await n.getRandomPrayTitle();
+                        //print(nnn);
 
                       },
                     ),

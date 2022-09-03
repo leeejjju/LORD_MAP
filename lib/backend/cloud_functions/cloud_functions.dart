@@ -63,7 +63,8 @@ class RandGetter {
   //랜덤 데이터 반환 - 말씀편
   Future<String> getRandomBible() async {
     //일단 성경은 요걸로만 해보께요...
-    int ranNum = rand.nextInt(10);
+    int ranNum = rand.nextInt(20);
+    if(ranNum >= 10) ranNum += 10;
     final usercol = FirebaseFirestore.instance.collection("Bible").doc(
         ranNum.toString());
 
